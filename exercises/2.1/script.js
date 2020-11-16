@@ -1,4 +1,4 @@
 let student = "Tiago Yoneda";
 let studentSkills = 10;
-
-console.log("SUcesso!");
+Vou ter muito sucesso na programação
+console.log("Sucesso!");
