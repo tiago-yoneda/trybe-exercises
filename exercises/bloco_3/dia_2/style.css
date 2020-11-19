@@ -1,0 +1,32 @@
+h1{
+    font-family:sans-serif;
+    color:blue;
+    font-size:30px
+}
+p{
+    font-weight: 600;
+    font-size:3em;
+    color:white;
+    font-style:oblique;
+    line-height:10px;
+}           
+body{
+    font-size:16px;
+    text-align:center;
+    background-color:black;
+}
+ul{
+    text-decoration: crimson;
+    font: weight 600;
+    font-size:30px;
+    list-style-type:none;
+}
+#Amarelo{
+    background-color:yellow;
+}
+#Vermelho{
+    background-color:red;
+}
+#Marrom{
+    background-color:brown;
+}
