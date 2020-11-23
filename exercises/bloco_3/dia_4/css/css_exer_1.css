@@ -1,6 +1,6 @@
 body{
     font-family:'Courier New', Courier, monospace;
-    background-color:#501b1d;
+    background-color:black;
     color:#adadad;
     }
 
@@ -12,11 +12,13 @@ body{
     margin: 0px auto;
 }
 h1{
+    color:#80ffdb;
     font-size:25px;
     padding:3px;
 }
 
 h2{
+    color:#80ffdb;
     font-size:20px;
 }
 li{
@@ -27,24 +29,19 @@ li{
 
 a{
     text-decoration: none;
-    background-color:#501b1d;
-    color:#adadad;
+    color:#80ffdb;
 }
 
-.navigator a:hover{
-    background-color: #adadad;;
-    color: #501b1d;
+a:hover{
+    background-color: #80ffdb;;
+    color: black;
 }
 
-/* .artigo{
-     
-
-} */
 table {
     width:100%;
     text-align:center;
     box-shadow:3px 3px;
-    border: 3px solid black;
+    border: 3px solid gray;
 }
 
 td{
@@ -78,10 +75,20 @@ section{
 
 section img{
     max-width:30%;
+    border-radius:200px;
 }
 
 section div{    
     text-align:center;
     display:block;
     padding:5px;
+}
+
+section.references{
+    font-size:.8em;
+}
+
+footer{
+    font-size:0.8em;
+    text-align:right;
 }
