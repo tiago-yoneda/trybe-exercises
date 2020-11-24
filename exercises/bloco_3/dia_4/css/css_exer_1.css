@@ -21,6 +21,11 @@ h2{
     color:#80ffdb;
     font-size:20px;
 }
+h3{
+    color:#80ffdb;
+    font-size:18px;
+}
+
 li{
     display:inline-block;
     list-style:none;
@@ -48,7 +53,7 @@ td{
     color:#b7e4c7;
 }
 
-.esq{
+.taxonomia{
     font-size:20px;
     color:#48cae4;
 }
