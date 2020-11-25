@@ -1,3 +1,5 @@
+// https://github.com/tiago-yoneda
+
 // Escreva um programa que converte uma nota dada em porcentagem (de 0 a 100) em conceitos de A a F. Siga essas regras:
 // Porcentagem >= 90 -> A
 // Porcentagem >= 80 -> B
