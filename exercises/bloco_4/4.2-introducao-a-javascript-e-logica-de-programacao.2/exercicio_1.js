@@ -1,4 +1,5 @@
 /*
+https://github.com/tiago-yoneda/trybe-exercises
 
 Nesse primeiro exercício, percorra o array imprimindo todos os valores nele contidos com a função console.log() ;
 */
