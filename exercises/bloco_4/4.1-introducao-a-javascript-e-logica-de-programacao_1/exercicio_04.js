@@ -2,7 +2,7 @@
 
 // Faça um programa que, dado um valor definido numa variável, retorne "positive" se esse valor for positivo, "negative" se for negativo e "zero" caso contrário.
 
-var a = 0;
+var a = 135;
 
 if (a > 0) {
     console.log('positive');
@@ -10,7 +10,7 @@ if (a > 0) {
 else if (a < 0) {
     console.log('negative');
 }
-else if (a = 0 ) {
+else if (a == 0 ) {
     console.log('zero');
 }
 else {
