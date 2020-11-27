@@ -14,6 +14,10 @@ function verifica_primo(number){
     let resultado = "";
     let raizDoNumber = Math.floor(Math.sqrt(number));
 
+    if (number == 1){
+        return false;
+    }
+
     if ( number <= 3 || number == 5){
         return true;
     }
@@ -39,7 +43,7 @@ function verifica_primo(number){
 // Area de teste 
 
 // teste individual
-let numeroDesejado = 13;
+let numeroDesejado = 1;
 let answer = verifica_primo(numeroDesejado);
 console.log(numeroDesejado+' -> '+answer);
 
@@ -60,5 +64,5 @@ for ( let num = 1 ; num <= numeros ; num+=1){
     }
 }
 
-console.log(counter-1);
+console.log(counter);
 */
