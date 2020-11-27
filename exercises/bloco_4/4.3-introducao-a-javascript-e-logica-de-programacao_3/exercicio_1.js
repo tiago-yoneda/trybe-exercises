@@ -12,6 +12,7 @@ n = 5
 *****
 
 */
+
 let n = 5;
 
 console.log('O número dado foi :'+n);
