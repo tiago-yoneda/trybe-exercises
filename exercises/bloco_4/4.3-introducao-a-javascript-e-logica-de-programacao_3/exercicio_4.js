@@ -4,7 +4,7 @@ https://github.com/tiago-yoneda
 4- Depois, faça uma pirâmide com n asteriscos de base:
 */
 
-n = 5;
+let n = 5;
 
 for ( let num = 0 ; num < n ; num+=1){
     if ( (num+1)%2 == 1 ) {
