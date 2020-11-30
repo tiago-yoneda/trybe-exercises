@@ -18,5 +18,5 @@ function retornaMax(array){
     return array.indexOf(maximo);
 }
 
-x = retornaMax(arrayDeTeste);
-console.log('O índice do maior valor é',x);
+let resultado = retornaMax(arrayDeTeste);
+console.log('O índice do maior valor é',resultado);
