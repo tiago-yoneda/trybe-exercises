@@ -38,3 +38,12 @@ function correctTagH1(){
   textoh1.innerText = 'Sua carreira de sucesso em programação começa aqui. Agora.';
 }
 correctTagH1();
+
+// exercicio 5
+function changeToUpper(){
+  let tagP = document.getElementsByTagName('p');
+    for ( let idx = 0 ; idx < tagP.length; idx += 1){
+      tagP[idx].innerText = tagP[idx].innerText.toUpperCase();
+    }
+}
+changeToUpper();
