@@ -35,7 +35,7 @@ changeCenterSquareColor();
 // exercicio 4
 function correctTagH1(){
   let textoh1 = document.getElementsByTagName('h1')[0];
-  textoh1.innerText = 'Sua carreira de sucesso em programação começa aqui. Agora.';
+  textoh1.innerText = 'Exercicio 5.1 - Javascript - DOM e seletores';
 }
 correctTagH1();
 
@@ -47,3 +47,12 @@ function changeToUpper(){
     }
 }
 changeToUpper();
+
+// exercicio 6
+function exibeParagrafos(){
+  let paragrafos = document.getElementsByTagName('p');
+  for ( let idx = 0 ; idx < paragrafos.length ; idx += 1){
+    console.log(paragrafos[idx].innerText)
+  }
+}
+exibeParagrafos();
