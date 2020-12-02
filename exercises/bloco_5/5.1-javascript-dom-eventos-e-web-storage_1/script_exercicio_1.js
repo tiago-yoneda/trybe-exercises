@@ -31,3 +31,10 @@ function changeCenterSquareColor(){
   quadrado.style.backgroundColor = 'white';
 }
 changeCenterSquareColor();
+
+// exercicio 4
+function correctTagH1(){
+  let textoh1 = document.getElementsByTagName('h1')[0];
+  textoh1.innerText = 'Sua carreira de sucesso em programação começa aqui. Agora.';
+}
+correctTagH1();
