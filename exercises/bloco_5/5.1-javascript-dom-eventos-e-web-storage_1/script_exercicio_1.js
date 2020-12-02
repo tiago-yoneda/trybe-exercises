@@ -26,3 +26,8 @@ function changeSquareColor(){
 changeSquareColor();
 
 // exercicio 3
+function changeCenterSquareColor(){
+  let quadrado = document.getElementsByClassName('center-content')[0];
+  quadrado.style.backgroundColor = 'white';
+}
+changeCenterSquareColor();
