@@ -9,5 +9,10 @@ Para uma melhor organização, faça commits a cada tarefa concluída. Vamos aos
 let newH1 = document.createElement('h1');
 newH1.innerText = 'Exercício 5.2';
 
-let body = document.querySelector('body')
+let body = document.querySelector('body');
 body.appendChild(newH1);
+
+// Adicione a tag div com a classe main-content como filho da tag body ;
+let newDiv = document.createElement('div');
+newDiv.className = 'main-content';
+body.appendChild(newDiv);
