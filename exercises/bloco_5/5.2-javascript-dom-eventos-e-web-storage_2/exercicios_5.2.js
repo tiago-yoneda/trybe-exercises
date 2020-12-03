@@ -12,7 +12,12 @@ newH1.innerText = 'Exercício 5.2';
 let body = document.querySelector('body');
 body.appendChild(newH1);
 
-// Adicione a tag div com a classe main-content como filho da tag body ;
-let newDiv = document.createElement('div');
-newDiv.className = 'main-content';
-body.appendChild(newDiv);
+// 2 - Adicione a tag div com a classe main-content como filho da tag body ;
+let mainContent = document.createElement('div');
+mainContent.className = 'main-content';
+body.appendChild(mainContent);
+
+// 3 - Adicione a tag div com a classe center-content como filho da tag div criada no passo 2 ;
+let centerContent = document.createElement('div');   /* ATENÇÃO QUE CRIOU NOVAMENTE COMO NEWDIV - Cuidado =] */
+centerContent.className = 'center-content';
+document.querySelector('.main-content').appendChild(centerContent);
