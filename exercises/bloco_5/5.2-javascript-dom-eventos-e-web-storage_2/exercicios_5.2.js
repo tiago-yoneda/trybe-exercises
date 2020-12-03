@@ -1,4 +1,4 @@
-/* 
+/*
 https://github.com/tiago-yoneda
 
 O objetivo desses exercícios é colocar em prática o que você acabou de aprender sobre DOM. Por isso, você deve fazer os exercícios utilizando apenas código JavaScript , o qual deve ser inserido entre as tags <script> e </script> .
@@ -42,3 +42,21 @@ let smallImage = document.createElement('img');
 smallImage.className = 'small-image';
 smallImage.setAttribute('src','https://picsum.photos/200');
 document.querySelector('.left-content').append(smallImage);
+
+// 8 - Adicione uma lista não ordenada com os valores de 1 a 10 por extenso como valores da lista. Essa lista deve ser filha do div criado no passo 6;
+let arrayDeNumeros = ['um' , 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez']
+let unorderedList = document.createElement('ul');
+unorderedList
+document.querySelector('.right-content').appendChild(unorderedList);
+
+for (let item of arrayDeNumeros){
+  let listItem = document.createElement('li');
+  listItem.innerText = item;
+  document.querySelector('ul').appendChild(listItem);
+}
+
+// 9 - Adicione 3 tags h3 , todas sendo filhas do div criado no passo 2.
+for ( let index = 0; index < 3; index += 1){
+  let newH3 = document.createElement('h3');
+  document.querySelector('.main-content').appendChild(newH3);
+}
