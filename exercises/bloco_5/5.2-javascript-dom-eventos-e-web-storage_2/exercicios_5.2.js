@@ -21,3 +21,8 @@ body.appendChild(mainContent);
 let centerContent = document.createElement('div');   /* ATENÇÃO QUE CRIOU NOVAMENTE COMO NEWDIV - Cuidado =] */
 centerContent.className = 'center-content';
 document.querySelector('.main-content').appendChild(centerContent);
+
+// 4 - Adicione a tag p como filho do div criado no passo 3 e coloque algum texto;
+let pFilhaDaCenterContent = document.createElement('p');
+pFilhaDaCenterContent.innerText = 'Exercicio 4, esse <p> é filho do center-content.'
+document.querySelector('.center-content').appendChild(pFilhaDaCenterContent);
