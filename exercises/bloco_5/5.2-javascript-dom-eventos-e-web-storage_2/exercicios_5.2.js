@@ -31,3 +31,14 @@ document.querySelector('.center-content').appendChild(pFilhaDaCenterContent);
 let leftContent = document.createElement('div');
 leftContent.className = 'left-content';
 document.querySelector('.main-content').appendChild(leftContent);
+
+// 6 - Adicione a tag div com a classe right-content como filho da tag div criada no passo 2;
+let rightContent = document.createElement('div');
+rightContent.className = 'right-content';
+document.querySelector('.main-content').appendChild(rightContent);
+
+// 7 - Adicione uma imagem com src configurado para o valor https://picsum.photos/200 e classe small-image . Esse elemento deve ser filho do div criado no passo 5;
+let smallImage = document.createElement('img');
+smallImage.className = 'small-image';
+smallImage.setAttribute('src','https://picsum.photos/200');
+document.querySelector('.left-content').append(smallImage);
