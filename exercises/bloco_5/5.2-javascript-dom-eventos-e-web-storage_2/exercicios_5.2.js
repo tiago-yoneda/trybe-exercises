@@ -75,3 +75,6 @@ for ( let item of arrayDeH3){
 
 // 3 - Remova o div criado no passo 5 (aquele que possui a classe left-content ). Utilize a função .removeChild() ;
 document.querySelector('.main-content').removeChild(document.querySelector('.main-content .left-content'))
+
+// 4 - Centralize o div criado no passo 6 (aquele que possui a classe right-content ). Dica: para centralizar, basta configurar o margin-right: auto do div ;
+document.querySelector('.right-content').setAttribute('style', 'margin-right:auto');
