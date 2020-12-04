@@ -66,3 +66,9 @@ for ( let index = 0; index < 3; index += 1){
 // Parte 2
 // 1 - Adicione a classe title na tag h1 criada;
 primeiraH1.className = 'title';
+
+//Adicione a classe description nas 3 tags h3 criadas;
+let arrayDeH3 = document.getElementsByTagName('h3');
+for ( let item of arrayDeH3){
+  item.className = 'description';
+}
