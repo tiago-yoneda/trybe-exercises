@@ -44,6 +44,7 @@ function adicionaDias(daysArray){
 
 adicionaDias(dezDaysList)
 
+
 /* Exercicio 2
 
 Implemente uma função que receba como parâmetro a string "Feriados" e crie dinamicamente um botão com o nome "Feriados".
@@ -55,3 +56,4 @@ Adicione este botão como filho/filha da tag <div> com classe "buttons-container
 let holidayButton = document.createElement('button');
 holidayButton.innerText = 'Feriados';
 holidayButton.id = 'btn-holiday';
+document.querySelector('.buttons-container').appendChild(holidayButton);
