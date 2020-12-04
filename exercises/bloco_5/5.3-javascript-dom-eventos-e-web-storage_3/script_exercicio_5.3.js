@@ -146,8 +146,8 @@ selfEvent.target.style.textShadow = '2px 2px 5px #48cae4';
 }
 
 function zoomOutNoNumero(selfEvent){
-  selfEvent.target.style.fontSize='20px';
-  selfEvent.target.removeAttribute('style','textShadow');
+  selfEvent.target.style.fontSize='';
+  selfEvent.target.style.textShadow = '';
 }
 
 function adicionaEventNosDias(){
@@ -203,10 +203,40 @@ let taskSelected = false;
 function selecionaTarefa(self){
   if (!taskSelected){
     self.target.className = 'task-selected';
+    self.target.innerText = '*';
   } else {
     self.target.className = 'task';
+    self.target.innerText = '';
   }
   taskSelected = !taskSelected;
 }
 
 document.querySelector('.task').addEventListener('click',selecionaTarefa);
+
+/* Exercicio 10
+
+Implemente uma função que adiciona um evento que ao clicar em um dia do mês no calendário, atribua a este dia a cor da legenda da sua tarefa selecionada.
+Ao clicar novamente no dia com a cor da legenda, a sua cor deverá voltar à configuração inicial rgb(119,119,119) .
+
+*/
+
+function markDay(self){
+  let bgColor = document.querySelector('.task-selected').style.backgroundColor;
+  if (self.target.className === 'day'){
+    self.target.classList.toggle('marked_day');
+    self.target.style.backgroundColor = bgColor;
+  } else {
+    self.target.classList.toggle('marked_day')
+    self.target.style.backgroundColor = '';
+  }
+  
+}
+
+function adicionaEventNosDias2(){
+  let days = document.querySelectorAll('.day')
+  for ( let item of days){
+    item.addEventListener('click', markDay);
+  }
+}
+
+adicionaEventNosDias2();
