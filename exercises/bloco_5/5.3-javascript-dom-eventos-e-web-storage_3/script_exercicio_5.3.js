@@ -44,7 +44,6 @@ function adicionaDias(daysArray){
 
 adicionaDias(dezDaysList)
 
-
 /* Exercicio 2
 
 Implemente uma função que receba como parâmetro a string "Feriados" e crie dinamicamente um botão com o nome "Feriados".
@@ -60,9 +59,6 @@ function criaHolidayButton(string){
 }
 
 criaHolidayButton('Feriados')
-
-
-
 
 /* Exercicio 3
 
@@ -137,4 +133,30 @@ function clickFriday(){
 }
 
 document.querySelector('#btn-friday').addEventListener('click',clickFriday);
+
+/* Exercicio 6
+
+Implemente duas funções que criem um efeito de "zoom". Ao passar o ponteiro do mouse em um dia do mês no calendário, o texto desse dia deve aumentar e, quando o ponteiro do mouse sair do dia, o texto deve retornar ao tamanho original.
+
+*/
+
+function zoomNoNumero(selfEvent){
+selfEvent.target.style.fontSize='30px';
+selfEvent.target.style.textShadow = '2px 2px 5px #48cae4';
+}
+
+function zoomOutNoNumero(selfEvent){
+  selfEvent.target.style.fontSize='20px';
+  selfEvent.target.removeAttribute('style','textShadow');
+}
+
+function adicionaEventNosDias(){
+  let days = document.querySelectorAll('.day')
+  for ( let item of days){
+    item.addEventListener('mouseover',zoomNoNumero);
+    item.addEventListener('mouseout', zoomOutNoNumero);
+  }
+}
+
+adicionaEventNosDias();
 
