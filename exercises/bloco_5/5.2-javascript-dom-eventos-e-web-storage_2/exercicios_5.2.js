@@ -5,12 +5,13 @@ O objetivo desses exercícios é colocar em prática o que você acabou de apren
 Para uma melhor organização, faça commits a cada tarefa concluída. Vamos aos exercícios:
 */
 
+// Parte 1
 // 1 - Adicione a tag h1 com o texto Exercício 5.2 - JavaScript DOM como filho da tag body ;
-let newH1 = document.createElement('h1');
-newH1.innerText = 'Exercício 5.2';
+let primeiraH1 = document.createElement('h1');
+primeiraH1.innerText = 'Exercício 5.2';
 
 let body = document.querySelector('body');
-body.appendChild(newH1);
+body.appendChild(primeiraH1);
 
 // 2 - Adicione a tag div com a classe main-content como filho da tag body ;
 let mainContent = document.createElement('div');
@@ -46,7 +47,7 @@ document.querySelector('.left-content').append(smallImage);
 // 8 - Adicione uma lista não ordenada com os valores de 1 a 10 por extenso como valores da lista. Essa lista deve ser filha do div criado no passo 6;
 let arrayDeNumeros = ['um' , 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove', 'dez']
 let unorderedList = document.createElement('ul');
-unorderedList
+
 document.querySelector('.right-content').appendChild(unorderedList);
 
 for (let item of arrayDeNumeros){
@@ -60,3 +61,8 @@ for ( let index = 0; index < 3; index += 1){
   let newH3 = document.createElement('h3');
   document.querySelector('.main-content').appendChild(newH3);
 }
+
+
+// Parte 2
+// 1 - Adicione a classe title na tag h1 criada;
+primeiraH1.className = 'title';
