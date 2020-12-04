@@ -57,3 +57,32 @@ let holidayButton = document.createElement('button');
 holidayButton.innerText = 'Feriados';
 holidayButton.id = 'btn-holiday';
 document.querySelector('.buttons-container').appendChild(holidayButton);
+
+/* Exercicio 3
+
+Implemente uma função que adicione ao botão "Feriados" um evento de "click" que muda a cor de fundo dos dias que possuem a classe "holiday" .
+É interessante que este botão possua também a lógica inversa. Ao ser clicado novamente ele retorna à configuração inicial com a cor "rgb(238,238,238)" .
+
+*/
+let holidayFlag = false;
+
+function clickHoliday(){
+  let color = '';
+  if (!holidayFlag){
+    bgColor = '#48cae4';
+    txtColor = 'red';
+  } else {
+    bgColor = 'rgb(238,238,238)';
+    txtColor = '#777';
+  }
+  let array = document.querySelectorAll('.holiday');
+
+  for ( let item of array){
+    item.style.backgroundColor = bgColor;
+    item.style.color = txtColor;
+  }
+  holidayFlag = !holidayFlag;
+}
+
+holidayButton.addEventListener('click',clickHoliday);
+
