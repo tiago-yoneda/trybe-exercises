@@ -103,8 +103,38 @@ Adicione este botão como filho/filha da tag <div> com classe "buttons-container
 function criaFridayButton(string){
   let fridayButton = document.createElement('button')
   fridayButton.innerText = string;
-  fridayButton.id = 'btn-fiday';
+  fridayButton.id = 'btn-friday';
   document.querySelector('.buttons-container').appendChild(fridayButton);
 }
 
-criaHolidayButton('Sexta-feira')
+criaFridayButton('Sexta-feira')
+
+/* Exercicio 5
+
+Implemente uma função que adicione ao botão "Sexta-feira" um evento de "click" que modifica o texto exibido nos dias que são Sexta-feira.
+É interessante que este botão possua também a lógica inversa. Ao ser clicado novamente ele retorna à configuração inicial exibindo os dias.
+
+*/
+
+let fridayFlag = false;
+
+function clickFriday(){
+  let color = '';
+  if (!fridayFlag){
+    bgColor = '#48cae4';
+    txtColor = 'red';
+  } else {
+    bgColor = 'rgb(238,238,238)';
+    txtColor = '#777';
+  }
+  let array = document.querySelectorAll('.friday');
+
+  for ( let item of array){
+    item.style.backgroundColor = bgColor;
+    item.style.color = txtColor;
+  }
+  fridayFlag = !fridayFlag;
+}
+
+document.querySelector('#btn-friday').addEventListener('click',clickFriday);
+
