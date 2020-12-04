@@ -153,7 +153,7 @@ function zoomOutNoNumero(selfEvent){
 function adicionaEventNosDias(){
   let days = document.querySelectorAll('.day')
   for ( let item of days){
-    item.addEventListener('mouseover',zoomNoNumero);
+    item.addEventListener('mouseover', zoomNoNumero);
     item.addEventListener('mouseout', zoomOutNoNumero);
   }
 }
@@ -192,3 +192,21 @@ function adicionaLagenda (corString){
 
 adicionaLagenda('#cbc0d3');
 
+/* Exercicio 9
+
+Implemente uma função que adiciona um evento que ao clicar no elemento com a tag <div> referente a cor da sua tarefa, atribua a este elemento a classe task selected , ou seja, quando sua tarefa possuir a classe task selected ela estará selecionada.
+Ao clicar novamente no elemento a sua classe deverá voltar a ser somente task , ou seja, esta tarefa está deixando de ser uma tarefa selecionada.
+*/
+
+let taskSelected = false;
+
+function selecionaTarefa(self){
+  if (!taskSelected){
+    self.target.className = 'task-selected';
+  } else {
+    self.target.className = 'task';
+  }
+  taskSelected = !taskSelected;
+}
+
+document.querySelector('.task').addEventListener('click',selecionaTarefa);
