@@ -41,7 +41,7 @@ document.querySelector('.main-content').appendChild(rightContent);
 // 7 - Adicione uma imagem com src configurado para o valor https://picsum.photos/200 e classe small-image . Esse elemento deve ser filho do div criado no passo 5;
 let smallImage = document.createElement('img');
 smallImage.className = 'small-image';
-smallImage.setAttribute('src','https://picsum.photos/200');
+smallImage.src = 'https://picsum.photos/200';
 document.querySelector('.left-content').append(smallImage);
 
 // 8 - Adicione uma lista não ordenada com os valores de 1 a 10 por extenso como valores da lista. Essa lista deve ser filha do div criado no passo 6;
@@ -77,4 +77,7 @@ for ( let item of arrayDeH3){
 document.querySelector('.main-content').removeChild(document.querySelector('.main-content .left-content'))
 
 // 4 - Centralize o div criado no passo 6 (aquele que possui a classe right-content ). Dica: para centralizar, basta configurar o margin-right: auto do div ;
-document.querySelector('.right-content').setAttribute('style', 'margin-right:auto');
+document.querySelector('.right-content').style.marginRight = 'auto';
+
+// 5 - Troque a cor de fundo do elemento pai da div criada no passo 3 (aquela que possui a classe center-content ) para a cor verde;
+document.querySelector('.center-content').parentElement.style.backgroundColor ='green';
