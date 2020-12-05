@@ -1,18 +1,18 @@
 function createDaysOfTheWeek() {
     const weekDays = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado']
     const weekDaysList = document.querySelector('.week-days');
-  
+
     for (let index = 0; index < weekDays.length; index += 1) {
       const days = weekDays[index];
       const dayListItem = document.createElement('li');
       dayListItem.innerHTML = days;
-  
+
       weekDaysList.appendChild(dayListItem);
     };
   };
-  
+
   createDaysOfTheWeek();
-  
+
   /* Exercicio 1
   O array dezDaysList contém os dois últimos dias de novembro e os dias do mês de dezembro. Desenvolva uma função que crie dinamicamente cada dia do calendário e os adicione como filhos/filhas da tag <ul> com ID "days" . Note que os dias 29 e 30 de novembro estão no array pois representam respectivamente Segunda-feira e Terça-feira.
 Os dias devem estar contidos em uma tag <li> , e todos devem ter a classe day . Ex: <li class="day">3</li>
@@ -30,7 +30,7 @@ function adicionaDias(daysArray){
     let day = document.createElement('li');
     day.className = 'day';
     day.innerText = item;
-    
+
     if (holidayList.includes(item)) {
       day.classList.add('holiday');
     }
@@ -222,14 +222,15 @@ Ao clicar novamente no dia com a cor da legenda, a sua cor deverá voltar à con
 
 function markDay(self){
   let bgColor = document.querySelector('.task-selected').style.backgroundColor;
-  if (self.target.className === 'day'){
+  let classList = self.target.classList;
+  if (!classList.contains('marked_day')){
     self.target.classList.toggle('marked_day');
     self.target.style.backgroundColor = bgColor;
   } else {
     self.target.classList.toggle('marked_day')
     self.target.style.backgroundColor = '';
   }
-  
+
 }
 
 function adicionaEventNosDias2(){
@@ -240,3 +241,44 @@ function adicionaEventNosDias2(){
 }
 
 adicionaEventNosDias2();
+
+/* BONUS
+
+Vamos adicionar compromissos ao seu calendário? Implemente uma função que, ao digitar um compromisso na caixa de texto "COMPROMISSOS", adiciona o item à lista "MEUS COMPROMISSOS" ao clicar no botão "ADICIONAR".
+Se nenhum caractere for inserido no campo input , a função deve retornar um alert com uma mensagem de erro ao clicar em "ADICIONAR".
+Ao pressionar a tecla "enter" o evento também deverá ser disparado.
+. keyCode Dica - Propriedade:
+
+*/
+
+document.querySelector('#task-input').value
+
+function adicionaCompromisso(){
+  let texto = document.querySelector('#task-input').value;
+  if (texto !== ''){
+    let compromisso = document.createElement('li')
+    compromisso.innerText = texto;
+    document.querySelector('.task-list').appendChild(compromisso);
+  } else {
+    alert('ERRO - não deixe o campo em branco');
+  }
+  document.querySelector('#task-input').value = '';
+}
+
+function enterCompromisso(self){
+  let key = self.keyCode;
+  if ( key === 13){
+    let texto = document.querySelector('#task-input').value;
+    if (texto !== ''){
+      let compromisso = document.createElement('li')
+      compromisso.innerText = texto;
+      document.querySelector('.task-list').appendChild(compromisso);
+    } else {
+      alert('ERRO - não deixe o campo em branco');
+    }
+  document.querySelector('#task-input').value = '';
+  }
+}
+// Enter NumpadEnter keycode = 13
+document.querySelector('#btn-add').addEventListener('click',adicionaCompromisso);
+document.querySelector('#task-input').addEventListener('keydown', enterCompromisso);
