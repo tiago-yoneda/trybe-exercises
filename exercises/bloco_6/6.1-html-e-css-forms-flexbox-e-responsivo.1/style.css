@@ -1,12 +1,28 @@
 fieldset {
-  margin: auto;
-  width: 80%;
+  margin: 30px auto;
+  width: 70%;
+  text-align: center;
 }
 
 header {
   text-align: center;
 }
 
-.dadosPessoais {
+label {
+  display:inline-block;
+  width: 20%;
+}
 
+input[type='text'] {
+  text-align:center;
+  width:75%;
+}
+
+label.tipoCasa {
+  margin: 0;
+  width: auto;
+}
+
+legend {
+  text-align:left;
 }
