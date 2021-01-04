@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercicio 6.1 - HTM e CSS: Forms</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Cadastro de Curriculum</h1>
+  </header>
+  <fieldset class='dadosPessoais'>
+    <legend>Dados Pessoais:</legend>
+    <br>
+    <label for='fullName'>Nome Completo: </label>
+    <input type="text" name="nome" id="fullName" placeholder='Insira seu nome completo' required maxlength=40 autofocus>
+    <br><br>
+    <label for='email'>e-mail:</label>
+    <input type="text" name="email" id="email" placeholder='Insira seu email' required maxlength=50>
+    <br><br>
+    <label for=CPF>CPF:</label>
+    <input type="text" name="CPF" id="CPF" placeholder='Insira seu CPF' required maxlength=11>
+    <br><br>
+    <label for="address">Endereço:</label>
+    <input type="text" name="endereco" id="address" placeholder='Insira seu endereço' required maxlength=200>
+    <br><br>
+    <label for="city">Cidade:</label>
+    <input type="text" name="cidade" id="city" placeholder='Insira sua Cidade'>
+
+
+  </fieldset>
+</body>
+</html>
