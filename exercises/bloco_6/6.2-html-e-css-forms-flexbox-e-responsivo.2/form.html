@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Exercicio 6.2 - HTM e CSS: Bibliotecas JavaScript e Frameworks CSS</title>
+  <link rel='stylesheet' href='./css/bulma.min.css'>
+  <link rel="stylesheet" href="dist/css/DatePickerX.min.css">
+  <script src="dist/js/DatePickerX.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Cadastro de Curriculum</h1>
+  </header>
+  <form method="GET">
+  <fieldset class='dadosPessoais'>
+    <legend>Dados Pessoais</legend>
+    <br>
+    <label for='fullName'>Nome Completo: </label>
+    <input type='text' name='nome' id='fullName' placeholder='Insira seu nome completo' required maxlength=40 autofocus>
+    <br><br>
+    <label for='email'>e-mail:</label>
+    <input type='text' name='email' id='email' placeholder='Insira seu email' required maxlength=50 autocomplete='off'>
+    <br><br>
+    <label for=CPF>CPF:</label>
+    <input type='text' name='CPF' id='CPF' placeholder='Insira seu CPF' required maxlength=11>
+    <br><br>
+    <label for='address'>Endereço:</label>
+    <input type='text' name='endereco' id='address' placeholder='Insira seu endereço' required maxlength=200>
+    <br><br>
+    <label for='city'>Cidade:</label>
+    <input type='text' name='cidade' id='city' placeholder='Insira sua Cidade' required>
+    <br><br>
+    <label for='estado'>Estado:</label>
+    <select name='estado' id='estado' style='width:55px' required></select>
+    <br><br>
+    <label>Residencia:</label>
+    <label class='tipoCasa' for="casa"><input type='radio' name='residencia' id='casa'>Casa</label>
+    <label class='tipoCasa' for='apartamento'><input type='radio' name='residencia' id='apartamento'>Apartamento</label> 
+    </fieldset>
+
+    <fieldset>
+      <legend>Ultimo Emprego</legend>
+      <textarea name="resumo" id="" cols=60% rows="10" maxlength='1000' placeholder='Resumo do Curriculum'></textarea>
+      <br><br>
+      <label for='position'>Cargo:</label>
+      <input type="text" name="cargo" id="position" maxlength=40 required placeholder='Nome do Cargo'>
+      <br><br>
+      <label for="description">Descrição do Cargo:</label>
+      <input type="text" name="descricao" id="description" maxlength=500 required placeholder='Descrição do cargo'>
+      <br><br>
+      <label for="date">Data de Inicio:</label>
+      <input type="text" name="dataDeInicio" id="date" required placeholder='dd/mm/aaaa' style='width: 80px' maxlength=10>
+    </fieldset>
+    <section>
+    <button type='submit'>Enviar</button>
+    <button type='reset'>Limpar Tudo</button>
+  </section>
+    </form>
+  <script src='./scripts/script.js'></script>
+</body>
+</html>
