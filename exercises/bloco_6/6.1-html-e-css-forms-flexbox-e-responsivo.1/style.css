@@ -1,0 +1,28 @@
+fieldset {
+  margin: 30px auto;
+  width: 70%;
+  text-align: center;
+}
+
+header {
+  text-align: center;
+}
+
+label {
+  display:inline-block;
+  width: 20%;
+}
+
+input[type='text'] {
+  text-align:center;
+  width:75%;
+}
+
+label.tipoCasa {
+  margin: 0;
+  width: auto;
+}
+
+legend {
+  text-align:left;
+}
