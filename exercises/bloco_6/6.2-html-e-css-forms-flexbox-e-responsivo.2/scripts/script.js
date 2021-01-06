@@ -21,13 +21,26 @@ addEstadosBox(estados);
 // let yyyy = today.getFullYear();
 //  if(dd<10){
 //         dd='0'+dd
-//     } 
+//     }
 //     if(mm<10){
 //         mm='0'+mm
-//     } 
+//     }
 
 // today = yyyy+'-'+mm+'-'+dd;
 // document.querySelector('#date').setAttribute('max', today);
 // }
 
 // setTodayMax()
+function myDatePicker() {
+ const myDate =  document.getElementById('date');
+ myDate.DatePickerX.init({
+   mondayFirst:false,
+   format:'dd/mm/yyyy',
+   clearButton:false,
+   todayButton:false,
+   maxDate:new Date(2020,11,31),
+ })
+ 
+}
+
+myDatePicker();
