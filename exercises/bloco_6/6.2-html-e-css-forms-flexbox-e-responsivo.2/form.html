@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Exercicio 6.2 - HTM e CSS: Bibliotecas JavaScript e Frameworks CSS</title>
+  <link rel="stylesheet" href="./DatePickerX-master/dist/css/DatePickerX.min.css">
+  <script src="./DatePickerX-master/dist/js/DatePickerX.min.js"></script>
+  <link rel='stylesheet' href='./css/bulma.min.css'>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <header>
+    <h1 class='title has-text-centered my-6'>Cadastro de Curriculum</h1>
+  </header>
+
+  <form method="GET">
+    <hr>
+    <legend class='subtitle is-5 has-text-centered'>Dados Pessoais</legend>
+    
+    <!-- Nome Completo -->
+    <div class='field'>
+      <label class='label' for='fullName'>Nome Completo:</label>
+      <div class='control'>
+        <input class='input' type='text' name='nome' id='fullName' placeholder='Insira seu nome completo' required maxlength=40 autofocus>
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class='field'>
+    <label class='label' for='email'>e-mail:</label>
+      <div class='control'>
+        <input class='input' type='text' name='email' id='email' placeholder='Insira seu email' required maxlength=50 autocomplete='off'>
+      </div>  
+    </div>
+
+    <!-- CPF -->
+    <div class='field'>
+      <label class='label' for=CPF>CPF:</label>
+      <div class='control'>
+        <input class='input' type='text' name='CPF' id='CPF' placeholder='Insira seu CPF' required maxlength=11>
+      </div>
+    </div>
+
+    <!-- Endereço -->
+    <div class='field'>
+    <label class='label' for='address'>Endereço:</label>
+      <div class=control>
+        <input class='input' type='text' name='endereco' id='address' placeholder='Insira seu endereço' required maxlength=200>
+      </div>  
+    </div>
+
+    <!-- Cidade -->
+    <div class='field'>
+    <label class='label' for='city'>Cidade:</label>
+      <div>
+        <input class='input' type='text' name='cidade' id='city' placeholder='Insira sua Cidade' required>
+      </div>
+    </div>
+
+    <!-- Estado -->
+    <div class='field'>
+      <label class='label' for='estado'>Estado:</label>
+      <div class='select'>
+        <select name='estado' id='estado' required></select>
+      </div>
+    </div>
+
+    <!-- Tipo de Residencia -->
+    <div class='field'>
+    <label class='label' style='padding-right: 30px'>Residencia:</label>
+      <div class='control'>
+        <label class='radio'>
+          <input type='radio' name='residencia' id='casa'>Casa
+        </label>
+        <label class='radio'>
+          <input type='radio' name='residencia' id='apartamento'>Apartamento
+        </label>
+      </div>
+    </div>
+    <hr>
+    <legend class='subtitle is-5 has-text-centered'>Ultimo Emprego</legend>
+
+    <!-- Rasumo -->
+    <div class='field'>
+      <textarea class='textarea' name="resumo" id="" cols=60% rows="10" maxlength='1000' placeholder='Resumo do Curriculum'></textarea>
+    </div>
+
+    <!-- Cargo -->
+    <div class='field'>
+      <label class='label' for='position'>Cargo:</label>
+      <div class='control'>
+        <input class='input' type="text" name="cargo" id="position" maxlength=40 required placeholder='Nome do Cargo'>
+      </div>
+    </div>
+
+    <!-- Descricao do Cargo -->
+    <div class='field'>
+      <label class='label' for="description">Descrição do Cargo:</label>
+      <div class='control'>
+        <input class='input' type="text" name="descricao" id="description" maxlength=500 required placeholder='Descrição do cargo'>
+      </div>
+    </div>
+
+
+    <label class='label' for="date">Data de Inicio:</label>
+    <input type="text" name="dataDeInicio" id="date" required placeholder='dd/mm/aaaa' style='width: 80px' maxlength=10>
+    <hr>
+    <section>
+    <button type='submit'>Enviar</button>
+    <button type='reset'>Limpar Tudo</button>
+    </section>
+    <hr>
+  </form>
+  <script src='./scripts/script.js'></script>
+</body>
+</html>
