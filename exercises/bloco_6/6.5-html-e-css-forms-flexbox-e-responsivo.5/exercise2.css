@@ -40,6 +40,7 @@ footer p, article p {
   padding: 15px;
 }
 
+/* Pequeno */
 @media screen and (max-width: 640px) {
 
 body {
@@ -75,6 +76,7 @@ article p {
 
 }
 
+/* Medio */
 @media screen and (min-width: 641px) and (max-width: 960px){
 
   header p {
@@ -126,3 +128,5 @@ article p {
 
 
 }
+
+/* Grande todo */
