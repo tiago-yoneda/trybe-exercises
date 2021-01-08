@@ -2,3 +2,20 @@ form {
   margin:auto;
   width:70%;
 }
+
+input[type='text'] {
+  border-radius: 10px;
+}
+
+.big-container {
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.big-container .field { 
+  display:flex ;
+  justify-content: center;
+  align-self: center;
+}
