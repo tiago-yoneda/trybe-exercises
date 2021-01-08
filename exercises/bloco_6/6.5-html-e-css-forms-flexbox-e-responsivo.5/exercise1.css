@@ -8,15 +8,74 @@ h1  {
 }
 
 h2 {
-
+  font-size: 1.25em;
 }
 
 img {
-
   max-width: 100%;
 }
 
 figure {
   margin: 0;
   margin: 30px auto;
+}
+
+.figures {
+  display:flex;
+  flex-direction:column;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1149px) {
+  body {
+    margin: auto 50px;
+    font-size:22px;
+    background-color: aqua; 
+  }
+
+  h1  {
+    font-size: 1.55em;
+  }
+  
+  h2 {
+    font-size: 1.45em;
+  }
+
+  .figures {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .figures figure {
+    flex-basis:350px
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  body {
+    margin: auto 50px;
+    font-size:26px;
+    background-color:rgb(67, 67, 192);
+  }
+
+  h1  {
+    font-size: 1.55em;
+  }
+  
+  h2 {
+    font-size: 1.45em;
+  }
+
+  .figures {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .figures figure {
+    flex-basis:350px
+  }
+
+  p {
+    max-width: 1200px;
+  }
+
 }
