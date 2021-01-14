@@ -218,3 +218,9 @@ createReport(allLessons, 'Maria Clara')
   aulas: [ 'Matemática', 'Matemática' ],
   estudantes: 30
 } */
+
+console.log('Object.values(allLessons.lesson1)')
+console.log(Object.values(allLessons.lesson1))
+console.log()
+console.log('(allLessons.lesson1.numeroEstudantes)')
+console.log(allLessons.lesson1.numeroEstudantes)
