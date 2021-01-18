@@ -67,11 +67,10 @@ const expectedResult = false;
 
 function authorUnique() {
   // escreva seu código aqui
+  const dateOfBirthArray = books.map(function(item) {return item.author.birthYear});
+  const hasDuplicates = (array) => new Set(array).size === array.length;
+
+  return hasDuplicates(dateOfBirthArray);
 }
 
-// assert.strictEqual(authorUnique(), expectedResult);
-
-const dateOfBirthArray = books.map(function(item) {return item.author.birthYear});
-
-console.log(dateOfBirthArray);
-
+assert.strictEqual(authorUnique(), expectedResult);
