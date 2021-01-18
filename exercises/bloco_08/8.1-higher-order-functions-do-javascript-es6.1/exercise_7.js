@@ -69,4 +69,9 @@ function authorUnique() {
   // escreva seu código aqui
 }
 
-assert.strictEqual(authorUnique(), expectedResult);
+// assert.strictEqual(authorUnique(), expectedResult);
+
+const dateOfBirthArray = books.map(function(item) {return item.author.birthYear});
+
+console.log(dateOfBirthArray);
+
