@@ -73,4 +73,26 @@ function authorUnique() {
   return hasDuplicates(dateOfBirthArray);
 }
 
-assert.strictEqual(authorUnique(), expectedResult);
+// assert.strictEqual(authorUnique(), expectedResult);
+
+function authorUnique2 () {
+
+  return books.every( (everyBook, everyIndex) => {
+    
+    return books.some((someBook, someIndex) => {
+      console.log(`E ${everyBook.author.birthYear} - S ${someBook.author.birthYear}`);
+      console.log(`e ${everyIndex} - s ${someIndex}
+`);
+      return (everyBook.author.birthYear === someBook.author.birthYear && everyIndex === someIndex);
+    })
+  });
+
+
+
+
+
+
+
+}
+console.log(authorUnique2());
+
