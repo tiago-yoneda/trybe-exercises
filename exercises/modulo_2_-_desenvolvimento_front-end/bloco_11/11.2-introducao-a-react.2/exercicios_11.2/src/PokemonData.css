@@ -1,0 +1,8 @@
+.pokemonAttributes {
+  border-radius: 30px;
+  border: 1px solid #000000;
+  display: flex;
+  justify-content: space-evenly;
+  margin:10px auto;
+  width: 40%;
+}
