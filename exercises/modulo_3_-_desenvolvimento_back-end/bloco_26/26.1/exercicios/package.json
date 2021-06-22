@@ -1,0 +1,20 @@
+{
+  "name": "exercicios",
+  "version": "1.0.0",
+  "description": "exercicios do bloco 26.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "imc": "node imc.js",
+    "velocidade": "node velocidade.js",
+    "sorteio": "node sorteio.js",
+    "fatorial": "node fatorial.js",
+    "fibonnaci": "node fibonacci.js"
+  },
+  "author": "Yoneda <xyonedax@gmail.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

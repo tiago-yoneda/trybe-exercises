@@ -1,0 +1,14 @@
+{
+  "name": "26.2",
+  "version": "1.0.0",
+  "description": "Exercicios da aula do dia 26.2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Yoneda <xyonedax@gmail.com>",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
