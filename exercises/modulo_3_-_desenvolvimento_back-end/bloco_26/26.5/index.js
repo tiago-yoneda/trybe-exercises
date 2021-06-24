@@ -94,6 +94,67 @@ app.get('/user/:name', (req, res) => {
   )
 });
 
+// Atividade 5:
+// Rota: /:operacao/:numero1/:numero2
+// Objetivo: Deve validar a operação e retornar o resultado da mesma. As operações podem ser soma , subtração , divisão ou multiplicação . Regra: Um middleware deve ser usado para cada operação. A operação deve ser recebida como parâmetro na rota.
+app.get('/:operacao/:numero1/:numero2', (req, res) => {
+  const { operacao } = req.params;
+  const numero1 = parseInt(req.params.numero1);
+  const numero2 = parseInt(req.params.numero2);
+
+  switch (operacao) {
+    case 'soma':
+      return res.status(200).json({
+        resultado: numero1 + numero2
+      });
+    default:
+      return res.status(406).json({
+        message: "operacao invalida"
+      });
+  };
+// ver como fazer com middlewares separas para cada operacao
+  res.status(200).json({
+    operacao,
+    numero1,
+    numero2
+  });
+});
+
+// Atividade 6:
+// Rota: /recipe/:id
+// Objetivo: Deletar a receita no banco de dados e retornar a receita deletada. Caso o id fornecido não exista, retorne um erro recipe not found .
+// Use o array abaixo para simular o banco de dados:
+let recipes = [
+  {
+    id:12345,
+    name:'farofa de bacon',
+    ingredientes:['farofa', 'bacon']
+  },
+  {
+    id:12346,
+    name:'ovo mexido',
+    ingredientes:['ovo']
+  }
+];
+
+app.delete('/recipe/:id', (req, res) => {
+  const myId  = parseInt(req.params.id);
+
+  const myRecipe = recipes.find(({id}) => id === myId);
+
+  if(!myRecipe) return res.status(404).json({
+    message: "recipe not found"
+  });
+
+  recipes = recipes.filter(({id}) => id !== myId);
+
+  res.status(200).json({
+    receitaDeletada: myRecipe,
+    receitasRestantes: recipes,
+  });
+});
+
+
 
 
 app.listen(listenPort, () => {
