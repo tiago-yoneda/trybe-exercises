@@ -17,7 +17,7 @@ app.put('/login', middlewares.checkLogin, middlewares.generateToken);
 const fetch = require('node-fetch');
 // npm install node-fetch
 
-app.get('/btc/price', middlewares.checkToken, async (req, res) => {
+app.get('/btc/price', middlewares.checkToken, async (_req, res) => {
 
   const endpoint = "https://api.coindesk.com/v1/bpi/currentprice/BTC.json";
 
