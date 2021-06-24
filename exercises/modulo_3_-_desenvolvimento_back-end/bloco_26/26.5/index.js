@@ -52,16 +52,19 @@ app.get('/posts', (_req, res) => {
 app.get('/posts/:id', (req, res) => {
   const myId = parseInt(req.params.id);
 
-  if(!( posts.map(({id}) => id).includes(myId) )) {
+
+  const myUser = posts.find(({id}) => id === myId);
+
+
+  if(!myUser) {
     return res.status(404).json({
       message: "id not found",
     });
   };
 
-  const myPost = posts.find(({id}) => id === myId);
-  res.status(200).json({
-    myPost,
-  })
+  res.status(200).json(
+    myUser
+  )
 });
 
 // Atividade 4:
