@@ -9,7 +9,7 @@ const validaOperacao = (req, res, next) => {
   ];
 
   if(!operacoes.includes(operacao)) {
-    return res.status(401).json({
+    return res.status(406).json({
       message: "operacao invalida"
     })
   };

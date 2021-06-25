@@ -1,5 +1,6 @@
 const express = require('express');
 const middlewares = require('./middlewares/index');
+const auxiliarFunctions = require('./auxiliarFunctions/index');
 const bodyParser = require('body-parser');
 
 const listenPort = 3000;
@@ -110,16 +111,35 @@ app.get('/:operacao/:numero1/:numero2', (req, res) => {
       return res.status(200).json({
         resultado: numero1 + numero2
       });
+    case 'subtracao':
+      return res.status(200).json({
+        resultado: numero1 - numero2
+      });
+    case 'multiplicacao':
+      return res.status(200).json({
+        resultado: numero1 * numero2
+      });
+    case 'divisao':
+      return res.status(200).json({
+        resultado: numero1 / numero2
+      });
     default:
       return res.status(406).json({
         message: "operacao invalida"
       });
   };
-// ver como fazer com middlewares separas para cada operacao
+});
+
+// outro jeito
+app.get('/new/:operacao/:numero1/:numero2', middlewares.validaOperacao, (req, res) => {
+  const { operacao } = req.params;
+  const numero1 = parseInt(req.params.numero1);
+  const numero2 = parseInt(req.params.numero2);
+
+  const resultado = auxiliarFunctions.operations(operacao, numero1, numero2);
+
   res.status(200).json({
-    operacao,
-    numero1,
-    numero2
+    resultado,
   });
 });
 
@@ -131,12 +151,12 @@ let recipes = [
   {
     id:12345,
     name:'farofa de bacon',
-    ingredientes:['farofa', 'bacon']
+    ingredients:['farofa', 'bacon']
   },
   {
     id:12346,
     name:'ovo mexido',
-    ingredientes:['ovo']
+    ingredients:['ovo']
   }
 ];
 
@@ -157,8 +177,163 @@ app.delete('/recipe/:id', (req, res) => {
   });
 });
 
+// Atividade 7:
+// Rota: /recipe/:id
+// Objetivo: Deve receber uma requisição com name e ingredients de uma receita, e substituir no banco de dados a receita que possua o id passado na requisição retornando a receita com a nova alteração. Caso o id fornecido não exista, retorne um erro recipe not found .
+// Use o array abaixo para simular o banco de dados:
+// no body usar ingredientes:='["ingrediente1", "ingrediente2"]' para passar array
+app.put('/recipe/:id', (req, res) => {
 
+  const myId = parseInt(req.params.id);
+  const { name, ingredients } = req.body;
 
+  if(!name || !ingredients) return res.status(400).json({
+    message: 'Missing parameters'
+  });
+
+  const myRecipe = recipes.find(({id}) => id === myId);
+
+  if (!myRecipe) return res.status(404).json({
+    message: "recipe not found"
+  });
+  const myIndex = auxiliarFunctions.findIndexById(recipes, myId);
+
+  auxiliarFunctions.replaceValues(recipes, myIndex, name, ingredients);
+res.status(200).json(myRecipe);
+});
+
+// Atividade 8:
+// Rota: /comments
+// Objetivo: Deve retornar todos os comentários. Se houver um query param filter na requisição, deve retornar apenas os comentários que incluem o filtro.
+// Use o array abaixo para simular o banco de dados:
+app.get('/comments', (req, res) => {
+  const { filter } = req.query;
+
+  const allComments = users.reduce((acc, { comments: userComments } ) => [...acc, ...userComments],[]);
+
+  if(filter) return res.status(200).json(
+    allComments.filter((comment) => comment.includes(filter))
+  );
+
+  res.status(200).json(
+    allComments
+  );
+});
+
+// Atividade 9:
+// Rota: /user/:id
+// Objetivo: Deve receber no campo status um booleano e alterar o status do usuário correspondente retornando o usuário em específico. Se o campo status não for um booleano, deve retornar o error "status isn't a boolean". Caso não exista usuário correspondente, deve retornar o error "user isn't found".
+// Use o array abaixo para simular o banco de dados:
+const newUsers = [
+  {
+    id: 2,
+    user: 'marcos',
+    isActive: true
+  },
+  {
+    id: 3,
+    user: 'paulo',
+    isActive: true
+
+  },
+  {
+    id: 4,
+    user: 'roger',
+    isActive: false
+  }
+];
+
+app.put('/user/:id', (req, res) => {
+  const { id } = req.params;
+  const { status } = req.body;
+
+  if(typeof status !== 'boolean') return res.status(400).json({
+    message: "status must be a boolean",
+  });
+
+  const myUser = auxiliarFunctions.changeUserStatus(newUsers, id, status);
+  
+  if(myUser) return res.status(200).json(myUser);
+
+  res.status(404).json({
+    message: "user not found"
+  });
+});
+
+// Atividade 10:
+// Rota: /recipe/:id/ingredients
+// Objetivo: Deve receber uma requisição com os campos remove e/ou insert . O valor deve ser um array de ingredientes para remover ou adicionar na receita correspondente. Caso o id fornecido não exista, retorne um erro recipe not found .
+// Usar o array de receitas
+// let recipes = [
+//   {
+//     id:12345,
+//     name:'farofa de bacon',
+//     ingredients:['farofa', 'bacon']
+//   },
+//   {
+//     id:12346,
+//     name:'ovo mexido',
+//     ingredients:['ovo']
+//   }
+// ];
+// vamos usar DELETE e POST
+
+// o array de ingredients vem no body no formato  ingredients:='["ingrediente1", "ingrediente2"]'
+// no o jeito de fazer a requisição é 'http PUT/DELETE :3000/id/ingredients ingredients:='["ingredient1", "ingredient2"]'
+// desse jeito que foi feito acaba mexendo na variavel recipes, talvez seria melhor deixar somente no log?
+app.route('/recipe/:id/ingredients') // o all é só para verificar se a receita existe
+  .all((req, res ,next) => {
+    const myId = parseInt(req.params.id);
+
+    if(!recipes.find(({id}) =>id === myId)) return res.status(404).json({
+      message: "recipe not found"
+    });
+
+    next();
+  }) // depois daqui vem o put
+  .put((req, res) => {
+    const myId = parseInt(req.params.id);
+    const { ingredients } = req.body
+
+    const myIndex = auxiliarFunctions.findIndexById(recipes, myId);
+  
+    if(!ingredients) return res.status(400).json({
+      message: "ingredients not found"
+    });
+
+    ingredients.forEach((ingredient) => (recipes[myIndex].ingredients).push(ingredient));
+
+    res.status(200).json(
+      recipes[myIndex]
+    );
+  }) // depois daqui vai o delete
+  .delete((req, res)  => {
+    const myId = parseInt(req.params.id);
+    const { ingredients } = req.body
+
+    const myIndex = auxiliarFunctions.findIndexById(recipes, myId);
+  
+    if(!ingredients) return res.status(400).json({
+      message: "ingredients not found"
+    });
+
+    let myIngredientArray = recipes[myIndex].ingredients;
+
+    ingredients.forEach((ingredient) => myIngredientArray = myIngredientArray.filter((myIngredient) => myIngredient != ingredient));
+
+    recipes[myIndex].ingredients = myIngredientArray;
+
+    res.status(200).json(
+      recipes[myIndex]
+    );
+  });
+
+// extra
+app.get('/recipes', (_req, res) => {
+  res.status(200).json({
+    recipes
+  });
+});
 
 app.listen(listenPort, () => {
   console.log(`App working on port ${listenPort}`);
