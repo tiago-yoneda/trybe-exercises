@@ -36,21 +36,20 @@ print(retorna_somatorio(5))
 #     - Até 20 litros, desconto de 4% por litro;
 #     - Acima de 20 litros, desconto de 6% por litro.
 def cobra_combustivel(volume, tipo):
-    if type(volume) != 'int':
-        return "Quandtidade de litros inválida"
+    VOLUME_DISCOUNT = 20
+    if type(volume) is not int:
+        return "Quantidade de litros inválida"
 
     alcool = (1.9, 3, 5)
     gasolina = (2.5, 4, 6)
-    desconto_index = 2 if volume > 20 else 1
+    desconto_index = 2 if volume > VOLUME_DISCOUNT else 1
     if tipo == "A":
-        return f"R${volume * alcool[0] * (1 - alcool[desconto_index] / 100)}"
+        return f"R${(volume*alcool[0]*(1 - alcool[desconto_index] / 100)):.2f}"
     elif tipo == "G":
         print(gasolina[desconto_index])
-        return (
-            f"R${volume * gasolina[0] * (1 - gasolina[desconto_index] / 100)}"
-        )
+        return f"R${(volume*gasolina[0]*(1-gasolina[desconto_index]/100)):.2f}"
     else:
         return "Tipo de combustível inválido"
 
 
-print(cobra_combustivel('sd', "G"))
+print(cobra_combustivel(21, "G"))
